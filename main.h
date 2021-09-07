@@ -130,7 +130,12 @@ int main()
     if(checkWin() == 1) {
         player--;
         if(player == 1) { mark = 'X'; } else { mark = '0'; }
-        printf("\n\nWinner is Player %d (%c) ", player, mark);
+        printf("\n\nWinner is Player %d (%c) \n\n\n", player, mark);
+        system("pause");
+    }
+
+    if(checkWin() == 0) {
+        printf("\n\nNo one is winner! :\(\n\n\n");
         system("pause");
     }
 
