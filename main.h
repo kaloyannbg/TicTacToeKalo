@@ -13,13 +13,20 @@ void squareDesign(void) {
 
         if( (i % 3) == 0 ) {
                 if(square[i] == 'X' || square[i] == '0') {
+                    printf("\033[1;33m"); // Yellow
                     printf("\t %c", square[i]);
+                    printf("\033[0m"); //Default
                 } else {
+
                     printf("\t[%c]", square[i]);
+
+
                 }
             } else {
                 if(square[i] == 'X' || square[i] == '0') {
+                    printf("\033[1;33m");
                     printf("\t %c", square[i]);
+                    printf("\033[0m");
                 } else {
                     printf("\t[%c]", square[i]);
                 }
@@ -66,6 +73,9 @@ int checkWin(void) {
 
 int main()
 {
+
+    system("color 07");
+
     printf("\n\n");
     printf("       Game X and 0 by Kalo");
     printf("\n\n\n");
@@ -130,6 +140,7 @@ int main()
     if(checkWin() == 1) {
         player--;
         if(player == 1) { mark = 'X'; } else { mark = '0'; }
+        printf("\033[1;33m"); // Yellow
         printf("\n\nWinner is Player %d (%c) \n\n\n", player, mark);
         system("pause");
     }
