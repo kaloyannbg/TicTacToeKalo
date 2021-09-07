@@ -67,7 +67,7 @@ int checkWin(void) {
 int main()
 {
     printf("\n\n");
-    printf("\tGame X and 0");
+    printf("       Game X and 0 by Kalo");
     printf("\n\n\n");
     printf("Player (1) is (X) , Player(2) is (0)");
     printf("\n\n");
@@ -86,7 +86,7 @@ int main()
 
     if(player == 1) { mark = 'X'; } else { mark = '0'; }
 
-    printf("Player %d make your choice: ", player);
+    printf("Player %d (%c) make your choice: ", player, mark);
 
     scanf("%d", &choice);
 
