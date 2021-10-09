@@ -4,114 +4,27 @@
 
 char Squares[10] = {'k', '1','2','3','4','5','6','7','8','9'};
 
-void resetSquares(void) {
+void resetSquares();
 
-    int i;
+void printMenu();
 
-    for(i = 1; i < 10; i++) {
-        Squares[i] = i + '0';
-    }
+void printSquares();
 
-}
-
-void printMenu() {
-
-    printf("\n\n -- 1. Enter 1 for Start new game");
-    printf("\n -- 2. Enter 2 to check Wins and Draws.");
-    printf("\n -- 0. Enter 0 for Quit");
-    printf("\n\n");
-}
-
-void printSquares(void) {
-
-    //printf("\033[0;33m");
-
-    int i;
-    printf("   _________________ \n");
-    printf("  |     |     |     |   \n");
-
-    for(i = 1; i < 10; i++) {
-        printf("  |");
-    if(Squares[i] == 'X') {
-        printf("\033[1;33m");
-       printf("  %c", Squares[i]);
-         printf("\033[0m");
-    } else if(Squares[i] == '0') {
-        printf("\033[1;36m");
-       printf("  %c", Squares[i]);
-       printf("\033[0m");
-    } else {
-        printf("\033[0m");
-       printf("  %c", Squares[i]);
-    }
-
-        if(i % 3 == 0) {
-            printf("  |");
-            printf("\n  |_____|_____|_____| \n\n");
-        }
-    }
-    /*
-    printf("\033[1;33m"); // Yellow
-
-    printf("   _________________ \n");
-    printf("  |     |     |     |   \n ");
-    printf(" |  %c  |  %c  |  %c  |\n", Squares[1], Squares[2], Squares[3]);
-    printf("  |_____|_____|_____| \n");
-    printf("  |     |     |     |   \n ");
-    printf(" |  %c  |  %c  |  %c  |\n", Squares[4], Squares[5], Squares[6]);
-    printf("  |_____|_____|_____|\n");
-    printf("  |     |     |     |   \n ");
-    printf(" |  %c  |  %c  |  %c  |\n", Squares[7], Squares[8], Squares[9]);
-    printf("  |_____|_____|_____|\n\n");
-
-    printf("\033[0m");
-    */
-
-
-
-}
-
-int checkWin(void) {
-
-    if(Squares[1] == Squares[2] && Squares[2] == Squares[3]) {
-        return 1;
-    } else if(Squares[4] == Squares[5] && Squares[5] == Squares[6]) {
-        return 1;
-    } else if(Squares[7] == Squares[8] && Squares[8] == Squares[9]) {
-        return 1;
-    } else if(Squares[1] == Squares[4] && Squares[4] == Squares[7]) {
-        return 1;
-    } else if(Squares[2] == Squares[5] && Squares[5] == Squares[8]) {
-        return 1;
-    } else if(Squares[3] == Squares[6] && Squares[6] == Squares[9]) {
-        return 1;
-    } else if(Squares[1] == Squares[5] && Squares[5] == Squares[9]) {
-        return 1;
-    } else if(Squares[7] == Squares[5] && Squares[5] == Squares[3]) {
-        return 1;
-    } else if(Squares[1] != '1' && Squares[2] != '2' && Squares[3] != '3' && Squares[4] != '4'
-    && Squares[5] != '5' && Squares[6] != '6' && Squares[7] != '7' && Squares[8] != '8'
-     && Squares[9] != '9') {
-        return 2;
-    } else {
-        return -1;
-    }
-
-}
+int checkWin();
 
 int main() {
 
 system("color 07");
 
-int choice;
+int choice = 0;
 
-char mark;
+char mark = 'X';
 
-int player;
+int player = 0;
 
-int playerPrint;
+int playerPrint = 1;
 
-int squareChoice;
+int squareChoice = 0;
 
 int xWins = 0;
 
@@ -206,3 +119,95 @@ int draws = 0;
     return 0;
 }
 
+void resetSquares() {
+
+    int i;
+
+    for(i = 1; i < 10; i++) {
+        Squares[i] = i + '0';
+    }
+
+}
+
+void printMenu() {
+
+    printf("\n\n -- 1. Enter 1 for Start new game");
+    printf("\n -- 2. Enter 2 to check Wins and Draws.");
+    printf("\n -- 0. Enter 0 for Quit");
+    printf("\n\n");
+}
+
+void printSquares(void) {
+
+    //printf("\033[0;33m");
+
+    int i;
+    printf("   _________________ \n");
+    printf("  |     |     |     |   \n");
+
+    for(i = 1; i < 10; i++) {
+        printf("  |");
+    if(Squares[i] == 'X') {
+        printf("\033[1;33m");
+       printf("  %c", Squares[i]);
+         printf("\033[0m");
+    } else if(Squares[i] == '0') {
+        printf("\033[1;36m");
+       printf("  %c", Squares[i]);
+       printf("\033[0m");
+    } else {
+        printf("\033[0m");
+       printf("  %c", Squares[i]);
+    }
+
+        if(i % 3 == 0) {
+            printf("  |");
+            printf("\n  |_____|_____|_____| \n\n");
+        }
+    }
+    /*
+    printf("\033[1;33m"); // Yellow
+    printf("   _________________ \n");
+    printf("  |     |     |     |   \n ");
+    printf(" |  %c  |  %c  |  %c  |\n", Squares[1], Squares[2], Squares[3]);
+    printf("  |_____|_____|_____| \n");
+    printf("  |     |     |     |   \n ");
+    printf(" |  %c  |  %c  |  %c  |\n", Squares[4], Squares[5], Squares[6]);
+    printf("  |_____|_____|_____|\n");
+    printf("  |     |     |     |   \n ");
+    printf(" |  %c  |  %c  |  %c  |\n", Squares[7], Squares[8], Squares[9]);
+    printf("  |_____|_____|_____|\n\n");
+    printf("\033[0m");
+    */
+
+
+
+}
+
+int checkWin() {
+
+    if(Squares[1] == Squares[2] && Squares[2] == Squares[3]) {
+        return 1;
+    } else if(Squares[4] == Squares[5] && Squares[5] == Squares[6]) {
+        return 1;
+    } else if(Squares[7] == Squares[8] && Squares[8] == Squares[9]) {
+        return 1;
+    } else if(Squares[1] == Squares[4] && Squares[4] == Squares[7]) {
+        return 1;
+    } else if(Squares[2] == Squares[5] && Squares[5] == Squares[8]) {
+        return 1;
+    } else if(Squares[3] == Squares[6] && Squares[6] == Squares[9]) {
+        return 1;
+    } else if(Squares[1] == Squares[5] && Squares[5] == Squares[9]) {
+        return 1;
+    } else if(Squares[7] == Squares[5] && Squares[5] == Squares[3]) {
+        return 1;
+    } else if(Squares[1] != '1' && Squares[2] != '2' && Squares[3] != '3' && Squares[4] != '4'
+    && Squares[5] != '5' && Squares[6] != '6' && Squares[7] != '7' && Squares[8] != '8'
+     && Squares[9] != '9') {
+        return 2;
+    } else {
+        return -1;
+    }
+
+}
